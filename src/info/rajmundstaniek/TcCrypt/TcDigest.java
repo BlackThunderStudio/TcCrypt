@@ -3,6 +3,9 @@
  */
 package info.rajmundstaniek.TcCrypt;
 
+import info.rajmundstaniek.TcCrypt.eception.DigestRuntimeException;
+import info.rajmundstaniek.TcCrypt.eception.DigestSetupException;
+
 public class TcDigest {
 
     private class SystemChange{
@@ -158,14 +161,14 @@ public class TcDigest {
         if(flag.equals(ActionType.DECODE)){
             if(system.equals(DigestSystem.UTF8)){
                 for (int character : input.toCharArray()){
-                    output += Character.toString((char)(character - digestHash));
+                    output += (char) (character - digestHash);
                 }
             } else {
-                String[] tmpInput = input.split("");
+                String[] tmpInput = input.split(" ");
                 for(String temp : tmpInput){
                     if(system.equals(DigestSystem.BIN)){
                         try{
-                            output += Character.toString((char)(Integer.parseInt(systemChange.toDecimal(temp, 2)) - digestHash));
+                            output += (char) (Integer.parseInt(systemChange.toDecimal(temp, 2)) - digestHash);
                         } catch (NumberFormatException ex){
                             throw new DigestRuntimeException("Error processing data. Invalid String to integer conversion. Could not convert BIN encrypted data into a String.\n" + ex.getMessage(),
                                     ex.getCause());
@@ -173,7 +176,7 @@ public class TcDigest {
                     }
                     if(system.equals(DigestSystem.HEX)){
                         try{
-                            output += Character.toString((char)(Integer.parseInt(systemChange.toDecimal(temp, 16)) - digestHash));
+                            output += (char) (Integer.parseInt(systemChange.toDecimal(temp, 16)) - digestHash);
                         } catch (NumberFormatException ex){
                             throw new DigestRuntimeException("Error processing data. Invalid String to integer conversion. Could not convert HEX encrypted data into a String.\n" + ex.getMessage(),
                                     ex.getCause());

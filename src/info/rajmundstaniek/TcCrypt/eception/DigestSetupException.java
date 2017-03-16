@@ -1,4 +1,4 @@
-package info.rajmundstaniek.TcCrypt;
+package info.rajmundstaniek.TcCrypt.eception;
 
 /**
  * Created by rajmu on 17.03.16.
