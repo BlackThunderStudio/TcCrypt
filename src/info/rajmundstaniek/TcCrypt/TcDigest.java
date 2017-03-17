@@ -6,6 +6,12 @@ package info.rajmundstaniek.TcCrypt;
 import info.rajmundstaniek.TcCrypt.eception.DigestRuntimeException;
 import info.rajmundstaniek.TcCrypt.eception.DigestSetupException;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Arrays;
+
 public class TcDigest {
 
     private class SystemChange{
@@ -135,6 +141,36 @@ public class TcDigest {
         if(actionType == null) throw new DigestSetupException("Unspecified action type!");
         if(digestSystem == null) throw new DigestSetupException("Unspecified numeric system!");
         return run(input, seed, actionType, digestSystem);
+    }
+
+
+    public String fromFile(File input, String seed) throws DigestSetupException, DigestRuntimeException {
+        if(seed.isEmpty()) throw new DigestSetupException("Seed string cannot be empty!");
+        if(actionType == null) throw new DigestSetupException("Unspecified action type!");
+        if(digestSystem == null) throw new DigestSetupException("Unspecified numeric system!");
+
+        String text = "";
+
+        try {
+            FileInputStream fileInputStream = new FileInputStream(input);
+            byte[] bytes = new byte[(int)input.length()];
+            fileInputStream.read(bytes);
+            text = Arrays.toString(bytes);
+        } catch (FileNotFoundException e) {
+            throw new DigestSetupException("Input file could not be found!", e);
+        } catch (IOException e) {
+            throw new DigestSetupException("Could not read the file!", e);
+        }
+
+        return run(text, seed, actionType, digestSystem);
+    }
+
+    public void fromFile(File inputFile, File outputFile, String seed) throws DigestSetupException {
+        if(seed.isEmpty()) throw new DigestSetupException("Seed string cannot be empty!");
+        if(actionType == null) throw new DigestSetupException("Unspecified action type!");
+        if(digestSystem == null) throw new DigestSetupException("Unspecified numeric system!");
+
+        //TODO: to be implemented
     }
 
     private String run(String input, String seed, ActionType flag, DigestSystem system) throws DigestRuntimeException {
