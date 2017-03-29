@@ -1,6 +1,6 @@
 package info.rajmundstaniek.TcCrypt;
 
-import info.rajmundstaniek.TcCrypt.eception.CryptoException;
+import info.rajmundstaniek.TcCrypt.exception.CryptoException;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;

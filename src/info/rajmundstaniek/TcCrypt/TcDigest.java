@@ -3,8 +3,8 @@
  */
 package info.rajmundstaniek.TcCrypt;
 
-import info.rajmundstaniek.TcCrypt.eception.DigestRuntimeException;
-import info.rajmundstaniek.TcCrypt.eception.DigestSetupException;
+import info.rajmundstaniek.TcCrypt.exception.DigestRuntimeException;
+import info.rajmundstaniek.TcCrypt.exception.DigestSetupException;
 
 import java.io.File;
 import java.io.FileInputStream;
