@@ -1,6 +1,7 @@
 package info.rajmundstaniek.TcCrypt;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
@@ -20,6 +21,7 @@ public class CryptoUtilsTest {
         in = new File(url.getPath());
     }
 
+    @Ignore
     @Test
     public void consistencyTest() throws Exception {
         String key = "dabsdfgsdfga1234";
