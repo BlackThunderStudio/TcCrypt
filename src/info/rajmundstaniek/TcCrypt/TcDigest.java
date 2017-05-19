@@ -16,87 +16,17 @@ import java.util.stream.Collectors;
 
 public class TcDigest {
 
-    private class SystemChange{
-        private char decToHexChars(int digit){
-            if (digit == 10) return 'A';
-            else if (digit == 11) return 'B';
-            else if (digit == 12) return 'C';
-            else if (digit == 13) return 'D';
-            else if (digit == 14) return 'E';
-            else if (digit == 15) return 'F';
-            else return ' ';
-        }
-        private int hexCharsToDec(char tmp){
-            if (tmp == 'A') return 10;
-            else if (tmp == 'B') return 11;
-            else if (tmp == 'C') return 12;
-            else if (tmp == 'D') return 13;
-            else if (tmp == 'E') return 14;
-            else if (tmp == 'F') return 15;
-            else return tmp - 48;
-        }
-
-        protected String toNumericSystem(int numberToChange, int system){
-            String ret = "";
-            while (numberToChange != 0){
-                int tmp = numberToChange % system;
-                if(tmp > 9) ret = decToHexChars(tmp) + ret;
-                else ret = tmp + ret;
-                numberToChange /= system;
-            }
-            ret += " ";
-            return ret;
-        }
-        protected String toDecimal(String text, int system){
-            int ret = 0;
-            int i = text.length() - 1;
-            if(system == 16){
-                for (char b : text.toCharArray()){
-                    ret += hexCharsToDec(b) * Math.pow(system, i);
-                    i--;
-                }
-            } else {
-                for(int a : text.toCharArray()){
-                    ret += (a - 48) * Math.pow(system, i);
-                    i--;
-                }
-            }
-            return String.valueOf(ret);
-        }
-    }
-
-    public enum ActionType {
-        ENCODE,
-        DECODE
-    }
-    public enum DigestSystem {
-        UTF8,
-        BIN,
-        HEX
-    }
-
-    public enum BufferSize {
-        SMALL(16),
-        STANDARD(64),
-        BIG(256),
-        LARGE(512);
-
-        private int bufferSize;
-
-        BufferSize(int size) {
-            bufferSize = size;
-        }
-
-        public int getValue() {
-            return bufferSize;
-        }
-    }
-
     private SystemChange systemChange;
     private ActionType actionType;
     private DigestSystem digestSystem;
     private String seed;
-    public final int bufferSize;
+
+    /***
+     * Default constructor
+     */
+    public TcDigest() {
+        systemChange = new SystemChange();
+    }
 
     public ActionType getActionType() {
         return actionType;
@@ -121,15 +51,6 @@ public class TcDigest {
     public void setSeed(String seed) {
         this.seed = seed;
     }
-
-    /***
-     * Default constructor
-     */
-    public TcDigest(int bufferSize) {
-        systemChange = new SystemChange();
-        this.bufferSize = bufferSize;
-    }
-
 
     /***
      * Computes the data with the given hash code parallelly
@@ -249,6 +170,8 @@ public class TcDigest {
         //TODO: to be implemented
     }
 
+
+    //private methods and sub classes
     private String run(String input, String seed, ActionType flag, DigestSystem system) throws DigestRuntimeException {
         int digestHash = 0;
         for (int temp : seed.toCharArray()){
@@ -319,5 +242,84 @@ public class TcDigest {
             chars.add(string.substring((blockCount - 1) * buffer.getValue(), string.length()));
         }
         return chars;
+    }
+
+    private class SystemChange {
+        private char decToHexChars(int digit) {
+            if (digit == 10) return 'A';
+            else if (digit == 11) return 'B';
+            else if (digit == 12) return 'C';
+            else if (digit == 13) return 'D';
+            else if (digit == 14) return 'E';
+            else if (digit == 15) return 'F';
+            else return ' ';
+        }
+
+        private int hexCharsToDec(char tmp) {
+            if (tmp == 'A') return 10;
+            else if (tmp == 'B') return 11;
+            else if (tmp == 'C') return 12;
+            else if (tmp == 'D') return 13;
+            else if (tmp == 'E') return 14;
+            else if (tmp == 'F') return 15;
+            else return tmp - 48;
+        }
+
+        protected String toNumericSystem(int numberToChange, int system) {
+            String ret = "";
+            while (numberToChange != 0) {
+                int tmp = numberToChange % system;
+                if (tmp > 9) ret = decToHexChars(tmp) + ret;
+                else ret = tmp + ret;
+                numberToChange /= system;
+            }
+            ret += " ";
+            return ret;
+        }
+
+        protected String toDecimal(String text, int system) {
+            int ret = 0;
+            int i = text.length() - 1;
+            if (system == 16) {
+                for (char b : text.toCharArray()) {
+                    ret += hexCharsToDec(b) * Math.pow(system, i);
+                    i--;
+                }
+            } else {
+                for (int a : text.toCharArray()) {
+                    ret += (a - 48) * Math.pow(system, i);
+                    i--;
+                }
+            }
+            return String.valueOf(ret);
+        }
+    }
+
+    public enum ActionType {
+        ENCODE,
+        DECODE
+    }
+
+    public enum DigestSystem {
+        UTF8,
+        BIN,
+        HEX
+    }
+
+    public enum BufferSize {
+        SMALL(16),
+        STANDARD(64),
+        BIG(256),
+        LARGE(512);
+
+        private int bufferSize;
+
+        BufferSize(int size) {
+            bufferSize = size;
+        }
+
+        public int getValue() {
+            return bufferSize;
+        }
     }
 }
