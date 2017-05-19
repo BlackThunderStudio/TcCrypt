@@ -10,7 +10,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class TcDigest {
 
@@ -73,10 +75,28 @@ public class TcDigest {
         HEX
     }
 
+    public enum BufferSize {
+        SMALL(16),
+        STANDARD(64),
+        BIG(256),
+        LARGE(512);
+
+        private int bufferSize;
+
+        BufferSize(int size) {
+            bufferSize = size;
+        }
+
+        public int getValue() {
+            return bufferSize;
+        }
+    }
+
     private SystemChange systemChange;
     private ActionType actionType;
     private DigestSystem digestSystem;
     private String seed;
+    public final int bufferSize;
 
     public ActionType getActionType() {
         return actionType;
@@ -105,9 +125,64 @@ public class TcDigest {
     /***
      * Default constructor
      */
-    public TcDigest(){
+    public TcDigest(int bufferSize) {
         systemChange = new SystemChange();
+        this.bufferSize = bufferSize;
     }
+
+
+    /***
+     * Computes the data with the given hash code parallelly
+     * @param input String of text / data to be processed
+     * @param seed hash used to compute the data
+     * @param flag Action type: [ENCODE / DECODE]
+     * @param system Numerical system of input / output: [UTF8 / BIN / HEX]
+     * @param bufferSize buffer size
+     * @return String of digested data
+     */
+    public String processParallel(String input, String seed, ActionType flag, DigestSystem system, BufferSize bufferSize) {
+        ArrayList<String> buffer = partition(input, bufferSize);
+        return buffer.parallelStream()
+                .map(e -> {
+                    try {
+                        return e = run(e, seed, flag, system);
+                    } catch (DigestRuntimeException e1) {
+                        e1.printStackTrace();
+                    }
+                    return null;
+                })
+                .collect(Collectors.joining());
+    }
+
+    /***
+     * Computes the data with the given hash code parallelly
+     * Buffer size in this setting is set to: 64
+     * @param input String of text / data to be processed
+     * @param seed hash used to compute the data
+     * @param flag Action type: [ENCODE / DECODE]
+     * @param system Numerical system of input / output: [UTF8 / BIN / HEX]
+     * @return String of digested data
+     */
+    public String processParallel(String input, String seed, ActionType flag, DigestSystem system) {
+        return processParallel(input, seed, flag, system, BufferSize.STANDARD);
+    }
+
+    /***
+     * Computes the data with the given hash code parallelly
+     * WARNING!!!
+     * Hash code, Action type and numerical system have to be set manually!!!
+     * @param input String of text / data to be processed
+     * @return String of digested data
+     * @throws DigestSetupException Throws an exception when the setup failed
+     */
+    public String processParallel(String input) throws DigestSetupException {
+        if (seed == null) throw new DigestSetupException("Seed string not initialized. Set the seed first!");
+        if (seed.isEmpty()) throw new DigestSetupException("Seed string cannot be empty!");
+        if (actionType == null) throw new DigestSetupException("Unspecified action type!");
+        if (digestSystem == null) throw new DigestSetupException("Unspecified numeric system!");
+        return processParallel(input, seed, actionType, digestSystem);
+    }
+
 
     /***
      * Computes the data with the given hash code
@@ -165,6 +240,7 @@ public class TcDigest {
         return run(text, seed, actionType, digestSystem);
     }
 
+    @Deprecated
     public void fromFile(File inputFile, File outputFile, String seed) throws DigestSetupException {
         if(seed.isEmpty()) throw new DigestSetupException("Seed string cannot be empty!");
         if(actionType == null) throw new DigestSetupException("Unspecified action type!");
@@ -224,4 +300,24 @@ public class TcDigest {
         if(output.isEmpty()) throw new DigestRuntimeException("Unknown TcDigest exception!");
         return output;
     }//end of run()
+
+    /***
+     *Partitions the input for a fixed sized blocks for parellel processing of the data
+     * @param string Input sequence
+     * @return output array
+     */
+    private ArrayList<String> partition(String string, BufferSize buffer) {
+        ArrayList<String> chars = new ArrayList<>();
+        int blockCount = 1;
+        if (string.length() <= buffer.getValue()) {
+            chars.add(string);
+        } else {
+            while ((blockCount * buffer.getValue()) < string.length()) {
+                chars.add(string.substring((blockCount - 1) * buffer.getValue(), blockCount * buffer.getValue()));
+                blockCount++;
+            }
+            chars.add(string.substring((blockCount - 1) * buffer.getValue(), string.length()));
+        }
+        return chars;
+    }
 }
