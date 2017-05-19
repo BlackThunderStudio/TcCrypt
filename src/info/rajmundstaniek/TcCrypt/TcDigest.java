@@ -20,12 +20,32 @@ public class TcDigest {
     private ActionType actionType;
     private DigestSystem digestSystem;
     private String seed;
+    final int bufferSize;
+    private final boolean testingMode;
 
     /***
      * Default constructor
      */
     public TcDigest() {
         systemChange = new SystemChange();
+        bufferSize = BufferSize.STANDARD.getValue();
+        testingMode = false;
+    }
+
+    /***
+     * Constructor with a custom buffer size functionality
+     *
+     * WARNING!!!
+     *
+     * NOT RECOMMENDED
+     *
+     * @param bufferSize size of the container for each thread to process
+     */
+    @Deprecated
+    public TcDigest(int bufferSize) {
+        systemChange = new SystemChange();
+        this.bufferSize = bufferSize;
+        testingMode = true;
     }
 
     public ActionType getActionType() {
@@ -227,19 +247,22 @@ public class TcDigest {
     /***
      *Partitions the input for a fixed sized blocks for parellel processing of the data
      * @param string Input sequence
+     * @param buffer size of a buffer for data
      * @return output array
      */
     private ArrayList<String> partition(String string, BufferSize buffer) {
+        int buff = buffer.getValue();
+        if (testingMode) buff = bufferSize;
         ArrayList<String> chars = new ArrayList<>();
         int blockCount = 1;
-        if (string.length() <= buffer.getValue()) {
+        if (string.length() <= buff) {
             chars.add(string);
         } else {
-            while ((blockCount * buffer.getValue()) < string.length()) {
-                chars.add(string.substring((blockCount - 1) * buffer.getValue(), blockCount * buffer.getValue()));
+            while ((blockCount * buff) < string.length()) {
+                chars.add(string.substring((blockCount - 1) * buff, blockCount * buff));
                 blockCount++;
             }
-            chars.add(string.substring((blockCount - 1) * buffer.getValue(), string.length()));
+            chars.add(string.substring((blockCount - 1) * buff, string.length()));
         }
         return chars;
     }
@@ -307,10 +330,12 @@ public class TcDigest {
     }
 
     public enum BufferSize {
+        TINY(8),
         SMALL(16),
         STANDARD(64),
         BIG(256),
-        LARGE(512);
+        LARGE(512),
+        OMGWTFBBQ(2048);
 
         private int bufferSize;
 
