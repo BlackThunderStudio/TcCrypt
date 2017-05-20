@@ -6,10 +6,8 @@ package info.rajmundstaniek.TcCrypt;
 import info.rajmundstaniek.TcCrypt.exception.DigestRuntimeException;
 import info.rajmundstaniek.TcCrypt.exception.DigestSetupException;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -22,6 +20,8 @@ public class TcDigest {
     private String seed;
     final int bufferSize;
     private final boolean testingMode;
+
+    public static final int MAX_BYTE_ARR_SIZE = 1048576; //roughly around 1MB
 
     /***
      * Default constructor
@@ -70,6 +70,34 @@ public class TcDigest {
 
     public void setSeed(String seed) {
         this.seed = seed;
+    }
+
+    /***
+     * Downloads resource from the web
+     * @param toDownload internet address of the the file
+     * @return byte array of a decoded object
+     */
+    public static byte[] downloadUrl(URL toDownload) {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        byte[] result;
+
+        try {
+            byte[] chunk = new byte[4096];
+            int bytesRead;
+            InputStream stream = toDownload.openStream();
+
+            while ((bytesRead = stream.read(chunk)) > 0) {
+                outputStream.write(chunk, 0, bytesRead);
+            }
+
+            result = outputStream.toByteArray();
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return result;
     }
 
     /***
@@ -124,6 +152,30 @@ public class TcDigest {
         return processParallel(input, seed, actionType, digestSystem);
     }
 
+    /***
+     * Computes the data with the given hash code parallelly
+     * @param inputBytes input data
+     * @param seed seed used to process the data
+     * @param flag Action type: [ENCODE / DECODE]
+     * @param system Numerical system of input / output: [UTF8 / BIN / HEX]
+     * @return byte array of processed data
+     */ //TODO:WIP
+    public byte[] processParallelBytes(byte[] inputBytes, String seed, ActionType flag, DigestSystem system) {
+        int sectorCount = (inputBytes.length / MAX_BYTE_ARR_SIZE) + 1;
+        byte[][] partitionedBytes = new byte[sectorCount][];
+        if (inputBytes.length <= MAX_BYTE_ARR_SIZE) {
+            //TODO: process normally
+        } else {
+            for (int i = 0; i < sectorCount - 1; i++) {
+                partitionedBytes[i] = new byte[MAX_BYTE_ARR_SIZE];
+                System.arraycopy(inputBytes, i * MAX_BYTE_ARR_SIZE, partitionedBytes[i], 0, MAX_BYTE_ARR_SIZE);
+            }
+            partitionedBytes[sectorCount - 1] = new byte[MAX_BYTE_ARR_SIZE];
+            System.arraycopy(inputBytes, (sectorCount - 1) * MAX_BYTE_ARR_SIZE, partitionedBytes[sectorCount - 1], 0, inputBytes.length - ((sectorCount - 1) * MAX_BYTE_ARR_SIZE));
+            //TODO: process partitioned
+        }
+        return null;
+    }
 
     /***
      * Computes the data with the given hash code
@@ -160,6 +212,15 @@ public class TcDigest {
     }
 
 
+    /***
+     * WARNING for small files only!!! (<1MB)
+     * @param input file
+     * @param seed hash
+     * @return computed string
+     * @throws DigestSetupException When shit goes south
+     * @throws DigestRuntimeException When shit goes south
+     */
+    @Deprecated
     public String fromFile(File input, String seed) throws DigestSetupException, DigestRuntimeException {
         if(seed.isEmpty()) throw new DigestSetupException("Seed string cannot be empty!");
         if(actionType == null) throw new DigestSetupException("Unspecified action type!");
@@ -189,7 +250,6 @@ public class TcDigest {
 
         //TODO: to be implemented
     }
-
 
     //private methods and sub classes
     private String run(String input, String seed, ActionType flag, DigestSystem system) throws DigestRuntimeException {
@@ -245,12 +305,12 @@ public class TcDigest {
     }//end of run()
 
     /***
-     *Partitions the input for a fixed sized blocks for parellel processing of the data
+     *P artitions the input for a fixed sized blocks for parellel processing of the data
      * @param string Input sequence
      * @param buffer size of a buffer for data
      * @return output array
      */
-    private ArrayList<String> partition(String string, BufferSize buffer) {
+    protected ArrayList<String> partition(String string, BufferSize buffer) {
         int buff = buffer.getValue();
         if (testingMode) buff = bufferSize;
         ArrayList<String> chars = new ArrayList<>();
@@ -265,6 +325,34 @@ public class TcDigest {
             chars.add(string.substring((blockCount - 1) * buff, string.length()));
         }
         return chars;
+    }
+
+    /***
+     * Partitions the input for a fixed sized blocks for parellel processing of the data
+     * @param bytes array of input bytes
+     * @param buffer size of a buffer for data
+     * @return output array of bytes
+     */
+    protected ArrayList<byte[]> partitionBytes(byte[] bytes, BufferSize buffer) {
+        int bufferValue = buffer.getValue();
+        if (testingMode) bufferValue = bufferSize;
+        ArrayList<byte[]> bytesArray = new ArrayList<>();
+        int blockCount = 1;
+        if (bytes.length <= bufferValue) {
+            bytesArray.add(bytes);
+        } else {
+            byte[] tmp;
+            while ((blockCount * bufferValue) < bytes.length) {
+                tmp = new byte[bufferValue];
+                System.arraycopy(bytes, ((blockCount - 1) * bufferValue), tmp, 0, bufferValue);
+                bytesArray.add(tmp);
+                blockCount++;
+            }
+            tmp = new byte[bufferValue];
+            System.arraycopy(bytes, ((blockCount - 1) * bufferValue), tmp, 0, (bytes.length - ((blockCount - 1) * bufferValue)));
+            bytesArray.add(tmp);
+        }
+        return bytesArray;
     }
 
     private class SystemChange {

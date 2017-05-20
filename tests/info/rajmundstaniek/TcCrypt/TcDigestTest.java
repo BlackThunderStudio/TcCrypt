@@ -4,8 +4,10 @@ import info.rajmundstaniek.TcCrypt.exception.DigestSetupException;
 import org.junit.Before;
 import org.junit.Test;
 
-import static info.rajmundstaniek.TcCrypt.TcDigest.ActionType;
-import static info.rajmundstaniek.TcCrypt.TcDigest.DigestSystem;
+import java.net.URL;
+import java.util.ArrayList;
+
+import static info.rajmundstaniek.TcCrypt.TcDigest.*;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -105,5 +107,33 @@ public class TcDigestTest {
         String out = digest.processParallel(in, "okon", ActionType.ENCODE, DigestSystem.HEX);
         String decrypt = digest.processParallel(out, "okon", ActionType.DECODE, DigestSystem.HEX);
         assertEquals(in, decrypt);
+    }
+
+    @Test
+    public void partitionBytesTest() throws Exception {
+        byte[] data = new byte[100];
+        for (int i = 0; i < 100; i++) {
+            data[i] = (byte) i;
+        }
+        ArrayList<byte[]> arr = digest.partitionBytes(data, TcDigest.BufferSize.STANDARD);
+        System.out.println();
+    }
+
+    @Test
+    public void processParallelBytes() throws Exception {
+        int size = 2 * MAX_BYTE_ARR_SIZE + 8192;
+        byte[] data = new byte[size];
+
+        for (int i = 0; i < size; i++) {
+            data[i] = (byte) i;
+        }
+
+        byte[] result = digest.processParallelBytes(data, "okon", ActionType.ENCODE, DigestSystem.HEX);
+    }
+
+    @Test(timeout = 1000 * 30)
+    public void downloadBytesFromFile() throws Exception {
+        String path = "http://remix1436.ct8.pl/resources/Media/Thomas_Jack_-_Booka_Shake.mp3";
+        byte[] data = TcDigest.downloadUrl(new URL(path));
     }
 }
