@@ -1,5 +1,9 @@
 /**
- * Created by rajmu on 17.03.16.
+ * Library made for encrypting / decrypting chunks of text and files
+ * File part is under construction at the moment
+ *
+ * @author Rajmund Staniek
+ * @created 16.03.2017
  */
 package info.rajmundstaniek.TcCrypt;
 
