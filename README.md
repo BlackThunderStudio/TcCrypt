@@ -17,7 +17,27 @@ Within this class you can process chunks of text or raw byte arrays in order to 
 - `public static byte[] downloadUrl(URL toDownload);`
 - `public String processParallel(String input, String seed, ActionType flag, DigestSystem system);`
 - `public String processParallel(String input, String seed, ActionType flag, DigestSystem system, BufferSize bufferSize);`
-- `public byte[] processParallelBytes(byte[] inputBytes, String seed, ActionType flag, DigestSystem system);' **_WARNING!!!_ This method is not fully implemented yet**
+- `public byte[] processParallelBytes(byte[] inputBytes, String seed, ActionType flag, DigestSystem system);` **_WARNING!!!_ This method is not fully implemented yet**
+
+#### Example
+```
+void foo(){
+  TcDigest tcDigest = new TcDigest();
+  tcDigest.setActionType(ActionType.ENCODE);
+  tcDigest.setSeed("super secret password here");
+  tcDigest.setDigestSystem(DigestSystem.HEX);
+  
+  String processed = tcDigest.processParallel("chunk of text to encrypt");
+}
+```
+**or**
+```
+void bar(){
+  TcDigest tcDigest = new TcDigest();
+  
+  String processed = tcDigest.processParallel("chunk of text to encrypt", "secret password", ActionType.ENCODE, DigestSystem.HEX);
+}
+```
 
 ## [CryptoUtils](src/info/rajmundstaniek/TcCrypt/CryptoUtils.java)
 Support class for AES encrption implementation.
