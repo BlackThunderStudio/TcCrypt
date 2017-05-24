@@ -17,38 +17,38 @@ public class TcDigestParallelStressTest {
         System.err.println("Test: 4500 BIN");
         long timeStart = Calendar.getInstance().getTimeInMillis();
         TcDigest d = new TcDigest(16);
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
         //new test
         d = new TcDigest(64);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
         //new test
         d = new TcDigest(256);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
         //new test
         d = new TcDigest(512);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
         //new test
         d = new TcDigest(1024);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
         //new test
         d = new TcDigest(2048);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
         //new test
         d = new TcDigest(4096);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
     }
 
     @Test
@@ -57,38 +57,38 @@ public class TcDigestParallelStressTest {
         System.err.println("Test: 4500 HEX");
         long timeStart = Calendar.getInstance().getTimeInMillis();
         TcDigest d = new TcDigest(16);
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
         //new test
         d = new TcDigest(64);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
         //new test
         d = new TcDigest(256);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
         //new test
         d = new TcDigest(512);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
         //new test
         d = new TcDigest(1024);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
         //new test
         d = new TcDigest(2048);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
         //new test
         d = new TcDigest(4096);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
     }
 
     @Test
@@ -97,38 +97,38 @@ public class TcDigestParallelStressTest {
         System.err.println("Test: 4500 UTF8");
         long timeStart = Calendar.getInstance().getTimeInMillis();
         TcDigest d = new TcDigest(16);
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
         //new test
         d = new TcDigest(64);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
         //new test
         d = new TcDigest(256);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
         //new test
         d = new TcDigest(512);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
         //new test
         d = new TcDigest(1024);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
         //new test
         d = new TcDigest(2048);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
         //new test
         d = new TcDigest(4096);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText4500, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
-        printLog(TxtRes.longAssText4500.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        d.processParallel(TxtRes.LONG_TEXT_4500_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        printLog(TxtRes.LONG_TEXT_4500_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
     }
 
     @Test
@@ -137,38 +137,38 @@ public class TcDigestParallelStressTest {
         System.err.println("Test: 9000 BIN");
         long timeStart = Calendar.getInstance().getTimeInMillis();
         TcDigest d = new TcDigest(16);
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
         //new test
         d = new TcDigest(64);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
         //new test
         d = new TcDigest(256);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
         //new test
         d = new TcDigest(512);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
         //new test
         d = new TcDigest(1024);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
         //new test
         d = new TcDigest(2048);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
         //new test
         d = new TcDigest(4096);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.BIN);
     }
 
     @Test
@@ -177,38 +177,38 @@ public class TcDigestParallelStressTest {
         System.err.println("Test: 9000 HEX");
         long timeStart = Calendar.getInstance().getTimeInMillis();
         TcDigest d = new TcDigest(16);
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
         //new test
         d = new TcDigest(64);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
         //new test
         d = new TcDigest(256);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
         //new test
         d = new TcDigest(512);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
         //new test
         d = new TcDigest(1024);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
         //new test
         d = new TcDigest(2048);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
         //new test
         d = new TcDigest(4096);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.HEX);
     }
 
     @Test
@@ -217,38 +217,38 @@ public class TcDigestParallelStressTest {
         System.err.println("Test: 9000 UTF8");
         long timeStart = Calendar.getInstance().getTimeInMillis();
         TcDigest d = new TcDigest(16);
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
         //new test
         d = new TcDigest(64);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
         //new test
         d = new TcDigest(256);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
         //new test
         d = new TcDigest(512);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
         //new test
         d = new TcDigest(1024);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
         //new test
         d = new TcDigest(2048);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
         //new test
         d = new TcDigest(4096);
         timeStart = Calendar.getInstance().getTimeInMillis();
-        d.processParallel(TxtRes.longAssText9000, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
-        printLog(TxtRes.longAssText9000.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), d.bufferSize, (Calendar.getInstance().getTimeInMillis() - timeStart), TcDigest.ActionType.ENCODE, TcDigest.DigestSystem.UTF8);
     }
 
 }

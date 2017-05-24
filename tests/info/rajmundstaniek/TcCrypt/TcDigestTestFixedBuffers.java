@@ -15,47 +15,47 @@ public class TcDigestTestFixedBuffers {
     public void parallelTiny() throws Exception {
         long timeStart = Calendar.getInstance().getTimeInMillis();
         TcDigest d = new TcDigest();
-        d.processParallel(TxtRes.longAssText9000, "okon", ActionType.ENCODE, DigestSystem.BIN, BufferSize.TINY);
-        printLog(TxtRes.longAssText9000.length(), BufferSize.TINY.getValue(), (Calendar.getInstance().getTimeInMillis() - timeStart), ActionType.ENCODE, DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", ActionType.ENCODE, DigestSystem.BIN, BufferSize.TINY);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), BufferSize.TINY.getValue(), (Calendar.getInstance().getTimeInMillis() - timeStart), ActionType.ENCODE, DigestSystem.BIN);
     }
 
     @Test
     public void parallelSmall() throws Exception {
         long timeStart = Calendar.getInstance().getTimeInMillis();
         TcDigest d = new TcDigest();
-        d.processParallel(TxtRes.longAssText9000, "okon", ActionType.ENCODE, DigestSystem.BIN, BufferSize.SMALL);
-        printLog(TxtRes.longAssText9000.length(), BufferSize.SMALL.getValue(), (Calendar.getInstance().getTimeInMillis() - timeStart), ActionType.ENCODE, DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", ActionType.ENCODE, DigestSystem.BIN, BufferSize.SMALL);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), BufferSize.SMALL.getValue(), (Calendar.getInstance().getTimeInMillis() - timeStart), ActionType.ENCODE, DigestSystem.BIN);
     }
 
     @Test
     public void parallelStandard() throws Exception {
         long timeStart = Calendar.getInstance().getTimeInMillis();
         TcDigest d = new TcDigest();
-        d.processParallel(TxtRes.longAssText9000, "okon", ActionType.ENCODE, DigestSystem.BIN, BufferSize.STANDARD);
-        printLog(TxtRes.longAssText9000.length(), BufferSize.STANDARD.getValue(), (Calendar.getInstance().getTimeInMillis() - timeStart), ActionType.ENCODE, DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", ActionType.ENCODE, DigestSystem.BIN, BufferSize.STANDARD);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), BufferSize.STANDARD.getValue(), (Calendar.getInstance().getTimeInMillis() - timeStart), ActionType.ENCODE, DigestSystem.BIN);
     }
 
     @Test
     public void parallelBig() throws Exception {
         long timeStart = Calendar.getInstance().getTimeInMillis();
         TcDigest d = new TcDigest();
-        d.processParallel(TxtRes.longAssText9000, "okon", ActionType.ENCODE, DigestSystem.BIN, BufferSize.BIG);
-        printLog(TxtRes.longAssText9000.length(), BufferSize.BIG.getValue(), (Calendar.getInstance().getTimeInMillis() - timeStart), ActionType.ENCODE, DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", ActionType.ENCODE, DigestSystem.BIN, BufferSize.BIG);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), BufferSize.BIG.getValue(), (Calendar.getInstance().getTimeInMillis() - timeStart), ActionType.ENCODE, DigestSystem.BIN);
     }
 
     @Test
     public void parallelLarge() throws Exception {
         long timeStart = Calendar.getInstance().getTimeInMillis();
         TcDigest d = new TcDigest();
-        d.processParallel(TxtRes.longAssText9000, "okon", ActionType.ENCODE, DigestSystem.BIN, BufferSize.LARGE);
-        printLog(TxtRes.longAssText9000.length(), BufferSize.LARGE.getValue(), (Calendar.getInstance().getTimeInMillis() - timeStart), ActionType.ENCODE, DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", ActionType.ENCODE, DigestSystem.BIN, BufferSize.LARGE);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), BufferSize.LARGE.getValue(), (Calendar.getInstance().getTimeInMillis() - timeStart), ActionType.ENCODE, DigestSystem.BIN);
     }
 
     @Test
     public void parallelOMGWTFBBQ() throws Exception {
         long timeStart = Calendar.getInstance().getTimeInMillis();
         TcDigest d = new TcDigest();
-        d.processParallel(TxtRes.longAssText9000, "okon", ActionType.ENCODE, DigestSystem.BIN, BufferSize.OMGWTFBBQ);
-        printLog(TxtRes.longAssText9000.length(), BufferSize.OMGWTFBBQ.getValue(), (Calendar.getInstance().getTimeInMillis() - timeStart), ActionType.ENCODE, DigestSystem.BIN);
+        d.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", ActionType.ENCODE, DigestSystem.BIN, BufferSize.OMGWTFBBQ);
+        printLog(TxtRes.LONG_TEXT_9000_WORDS.length(), BufferSize.OMGWTFBBQ.getValue(), (Calendar.getInstance().getTimeInMillis() - timeStart), ActionType.ENCODE, DigestSystem.BIN);
     }
 }

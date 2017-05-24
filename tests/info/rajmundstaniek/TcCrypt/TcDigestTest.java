@@ -85,8 +85,8 @@ public class TcDigestTest {
 
     @Test(timeout = 1000)
     public void executionTimeTest4500() throws Exception {
-        System.out.println("Strain test text length: " + TxtRes.longAssText4500.length());
-        String encoded = digest.processData(TxtRes.longAssText4500, "okon", ActionType.ENCODE, DigestSystem.UTF8);
+        System.out.println("Strain test text length: " + TxtRes.LONG_TEXT_4500_WORDS.length());
+        String encoded = digest.processData(TxtRes.LONG_TEXT_4500_WORDS, "okon", ActionType.ENCODE, DigestSystem.UTF8);
         //String decoded = digest.processData(encoded, "okon", TcDigest.ActionType.DECODE, TcDigest.DigestSystem.UTF8);
 
         //assertEquals(input, decoded);
@@ -94,8 +94,8 @@ public class TcDigestTest {
 
     @Test(timeout = 2000)
     public void executionTimeTest9000() throws Exception {
-        System.out.println("Strain test text length: " + TxtRes.longAssText9000.length());
-        String encoded = digest.processData(TxtRes.longAssText9000, "okon", ActionType.ENCODE, DigestSystem.UTF8);
+        System.out.println("Strain test text length: " + TxtRes.LONG_TEXT_9000_WORDS.length());
+        String encoded = digest.processData(TxtRes.LONG_TEXT_9000_WORDS, "okon", ActionType.ENCODE, DigestSystem.UTF8);
         //String decoded = digest.processData(encoded, "okon", TcDigest.ActionType.DECODE, TcDigest.DigestSystem.UTF8);
 
         //assertEquals(input, decoded);

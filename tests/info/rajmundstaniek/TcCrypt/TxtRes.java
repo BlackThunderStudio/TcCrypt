@@ -24,7 +24,7 @@ public class TxtRes {
         );
     }
 
-    public static final String longAssText4500 = "Legendos sententiae sed ut, sonet intellegat ut vix, in populo iudicabit sed. Quo id ferri suscipiantur, ad est omnes noster, an eam labitur liberavisse. Putant meliore intellegam ei usu, eam ancillae placerat incorrupte in. Vix in tamquam referrentur. Mea cu populo qualisque, duo veri modus deserunt in.\n" +
+    public static final String LONG_TEXT_4500_WORDS = "Legendos sententiae sed ut, sonet intellegat ut vix, in populo iudicabit sed. Quo id ferri suscipiantur, ad est omnes noster, an eam labitur liberavisse. Putant meliore intellegam ei usu, eam ancillae placerat incorrupte in. Vix in tamquam referrentur. Mea cu populo qualisque, duo veri modus deserunt in.\n" +
             "\n" +
             "Et qui quas postulant, delenit hendrerit vulputate an eos, tempor doctus inimicus ad usu. At semper delenit detracto sit, cum cu fabulas adipiscing. Ex has ignota lobortis, utinam mollis corrumpit in sit. Te zril tollit dolores sed. In vocent recusabo accusamus nam. Nemore iuvaret dissentiet et cum, mea quas maiorum postulant ad.\n" +
             "\n" +
@@ -165,7 +165,7 @@ public class TxtRes {
             "Eos vide nostrud periculis no, sale tantas in pri. Percipit adipisci honestatis ea has. Has mutat sonet honestatis id. Diceret inermis volutpat an eos, elit dicta sit eu. Vim at fierent persecuti, ridens minimum ea per. Debet aliquam mandamus cu sea. Ne nec veri facete instructior, vituperata appellantur eam no.\n" +
             "\n" +
             "Duo hinc vitae cu, ex dictas sanctus pro. Etiam aeque mediocritatem vim ad, detracto necessitatibus ei cum, ei integre feugait eos.";
-    public static final String longAssText9000 = "Legendos sententiae sed ut, sonet intellegat ut vix, in populo iudicabit sed. Quo id ferri suscipiantur, ad est omnes noster, an eam labitur liberavisse. Putant meliore intellegam ei usu, eam ancillae placerat incorrupte in. Vix in tamquam referrentur. Mea cu populo qualisque, duo veri modus deserunt in.\n" +
+    public static final String LONG_TEXT_9000_WORDS = "Legendos sententiae sed ut, sonet intellegat ut vix, in populo iudicabit sed. Quo id ferri suscipiantur, ad est omnes noster, an eam labitur liberavisse. Putant meliore intellegam ei usu, eam ancillae placerat incorrupte in. Vix in tamquam referrentur. Mea cu populo qualisque, duo veri modus deserunt in.\n" +
             "\n" +
             "Et qui quas postulant, delenit hendrerit vulputate an eos, tempor doctus inimicus ad usu. At semper delenit detracto sit, cum cu fabulas adipiscing. Ex has ignota lobortis, utinam mollis corrumpit in sit. Te zril tollit dolores sed. In vocent recusabo accusamus nam. Nemore iuvaret dissentiet et cum, mea quas maiorum postulant ad.\n" +
             "\n" +
@@ -447,7 +447,7 @@ public class TxtRes {
             "Eos vide nostrud periculis no, sale tantas in pri. Percipit adipisci honestatis ea has. Has mutat sonet honestatis id. Diceret inermis volutpat an eos, elit dicta sit eu. Vim at fierent persecuti, ridens minimum ea per. Debet aliquam mandamus cu sea. Ne nec veri facete instructior, vituperata appellantur eam no.\n" +
             "\n" +
             "Duo hinc vitae cu, ex dictas sanctus pro. Etiam aeque mediocritatem vim ad, detracto necessitatibus ei cum, ei integre feugait eos.";
-    public static final String longAssTextLong = "Legendos sententiae sed ut, sonet intellegat ut vix, in populo iudicabit sed. Quo id ferri suscipiantur, ad est omnes noster, an eam labitur liberavisse. Putant meliore intellegam ei usu, eam ancillae placerat incorrupte in. Vix in tamquam referrentur. Mea cu populo qualisque, duo veri modus deserunt in.\n" +
+    public static final String longTextLong = "Legendos sententiae sed ut, sonet intellegat ut vix, in populo iudicabit sed. Quo id ferri suscipiantur, ad est omnes noster, an eam labitur liberavisse. Putant meliore intellegam ei usu, eam ancillae placerat incorrupte in. Vix in tamquam referrentur. Mea cu populo qualisque, duo veri modus deserunt in.\n" +
             "\n" +
             "Et qui quas postulant, delenit hendrerit vulputate an eos, tempor doctus inimicus ad usu. At semper delenit detracto sit, cum cu fabulas adipiscing. Ex has ignota lobortis, utinam mollis corrumpit in sit. Te zril tollit dolores sed. In vocent recusabo accusamus nam. Nemore iuvaret dissentiet et cum, mea quas maiorum postulant ad.\n" +
             "\n" +

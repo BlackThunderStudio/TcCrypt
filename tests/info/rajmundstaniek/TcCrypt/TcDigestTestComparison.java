@@ -23,18 +23,18 @@ public class TcDigestTestComparison {
 
     @Test
     public void sequential() throws Exception {
-        tcDigest.processData(TxtRes.longAssText9000, "okon", actionType, system);
+        tcDigest.processData(TxtRes.LONG_TEXT_9000_WORDS, "okon", actionType, system);
     }
 
     @Test
     public void concurrent() throws Exception {
-        tcDigest.processParallel(TxtRes.longAssText9000, "okon", actionType, system);
+        tcDigest.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", actionType, system);
     }
 
     @Test
     public void integrityCheck() throws Exception {
-        String parallel = tcDigest.processParallel(TxtRes.longAssText9000, "okon", actionType, system);
-        String sequential = tcDigest.processData(TxtRes.longAssText9000, "okon", actionType, system);
+        String parallel = tcDigest.processParallel(TxtRes.LONG_TEXT_9000_WORDS, "okon", actionType, system);
+        String sequential = tcDigest.processData(TxtRes.LONG_TEXT_9000_WORDS, "okon", actionType, system);
 
         assertEquals(parallel, sequential);
     }
