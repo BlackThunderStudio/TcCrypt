@@ -128,7 +128,7 @@ public class TcDigest {
     }
 
     /***
-     * Computes the data with the given hash code parallelly
+     * Computes the data with the given hash code in parallel
      * Buffer size in this setting is set to: 64
      * @param input String of text / data to be processed
      * @param seed hash used to compute the data
@@ -221,8 +221,8 @@ public class TcDigest {
      * @param input file
      * @param seed hash
      * @return computed string
-     * @throws DigestSetupException When shit goes south
-     * @throws DigestRuntimeException When shit goes south
+     * @throws DigestSetupException
+     * @throws DigestRuntimeException
      */
     @Deprecated
     public String fromFile(File input, String seed) throws DigestSetupException, DigestRuntimeException {
